@@ -43,18 +43,15 @@ print("4d. Chart 4 (Area Heatmap): PASS")
 fig5 = app.box_chart(df)
 print("4e. Chart 5 (Category Boxplot): PASS")
 
-fig6 = app.delivery_distribution_chart(df)
-print("4f. Chart 6 (Delivery Time Histogram): PASS")
-
 # 5. Navigation & Pages
-expected_nav = ["Dashboard", "Delivery Analysis", "Agent Performance", "Regional & Category", "Data Preparation", "About Project"]
+expected_nav = ["Delivery Analysis", "Agent Performance", "Regional & Category", "Data Preparation", "About Project"]
 actual_nav = [label for label, _ in app.NAV]
 assert actual_nav == expected_nav, f"NAV mismatch: {actual_nav} vs {expected_nav}"
-print(f"5. Navigation: PASS — 6 distinct pages: {actual_nav}")
+print(f"5. Navigation: PASS — 5 distinct pages: {actual_nav}")
 
-for fn_name in ["page_dashboard", "page_delivery", "page_agent", "page_regional", "page_prep", "page_about"]:
+for fn_name in ["page_delivery", "page_agent", "page_regional", "page_prep", "page_about"]:
     assert hasattr(app, fn_name) and callable(getattr(app, fn_name)), f"Missing page function: {fn_name}"
-print("6. Page Renderers: PASS — all 6 unique page functions verified")
+print("6. Page Renderers: PASS — all 5 unique page functions verified")
 
 print()
 print("=" * 65)
